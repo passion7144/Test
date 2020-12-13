@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dispiker</title>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script type="text/javascript" src="js/jQueryDistpicker/dist/distpicker.data.min.js"></script>
+		<script type="text/javascript" src="js/jQueryDistpicker/dist/distpicker.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#target').distpicker({
+					province: '重庆市',
+					city: '重庆市市辖区市',
+					district: '巴南区'
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="target">
+			<select></select>
+			<select></select>
+			<select></select>
+		</div>
+	</body>
+</html>

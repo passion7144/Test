@@ -1,0 +1,73 @@
+html,body,div,table,span,ul,li{
+	margin: 0px;
+	padding: 0px;
+}
+body{margin-left: 11%;}
+header{margin-top:20px ;
+margin-left: 10px;
+color: #00A0E9;
+font-size: 25px;}
+section{height: 600px;
+width: 1600px;
+background-color:#00a0e9;
+margin-top:3%;
+}
+.logcity{margin-left: -100px;
+margin-top: -150px;}
+
+
+.login_form{
+	width: 330px;
+	height: 300px;
+	background-color: #ecf9ff;
+	margin-top: -600px;
+	margin-left: 1000px;
+}
+.lf{
+	padding-top: 20px;
+	padding-left: 40px;
+}
+.login_form_tx{
+	width: 240px;
+	height: 44px;
+	margin-bottom: 17px;
+}
+.luname input{
+	background-image: url(../../img/work3/user.png);
+	background-repeat: no-repeat;
+	padding-left: 50px;
+	width: 200px;
+	border: 1px #000 solid;
+}
+.luname{margin-top: 20px;}
+.lpwd input{background-image: url(../../img/work3/pass.png);
+	background-repeat: no-repeat;
+	padding-left: 50px;
+	width: 200px;
+	border: 1px #000 solid;}
+.lpwd{margin-top: 20px;}
+.lbtn{
+	margin-top: 20px;
+text-align: center;
+}
+.lbtn input{
+	width: 250px;
+	height: 29px;
+	background-color: #00a0e9;
+	color: #ffffff;
+	border: 0px;
+	cursor: pointer;
+	margin-left: -40px;
+}
+
+footer{margin-top: 50px;}
+
+
+
+
+
+
+
+
+
+

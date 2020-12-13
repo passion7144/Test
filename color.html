@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script src="js/jquery.color.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<style type="text/css">
+			.div1 {
+				height: 200px;
+				width: 200px;
+				background-color: #CC0000;
+				position: absolute;
+				top: 20px;
+				font-size: 60px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				$(".div1").animate({
+					backgroundColor: "#00A0E9",
+					top: "200px"
+				}, 5000, "easeOutElastic");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="div1"><img src="img/work1/foot2_4.png" height="100px"></br>大帅哥</div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<input type="button" value="点击开始" onclick="shuchu()" />
+	<script type=" text/javascript">
+// 		alert(add(1,2));
+// 		function add(a,b){
+// 		 return
+// 			 a+b;
+// 			
+// 		}
+// 匿名函数		(
+// 		function(a,b){
+// 			alert(a*b);
+// 		}
+// 		)(1,2)
+//输入函数 var a = prompt('我的标题','xxx')
+//triangle
+
+    function shuchu(){
+		var  x= prompt('请输入行数','xxx')
+		document.write('<br>作业正三角<br><br><br>');
+		for(var i = 1;i<=x;i++){
+			for(var j=x-i;j>=0;j--){
+			document.write('&nbsp');
+			}
+			for(var a = 1;a<=i;a++){
+				document.write('*');
+			}
+		document.write('<br/>')
+		}
+		
+		//Parallelogram
+		document.write('<br>作业平行四边形<br><br><br>');
+		for(var i = 1;i<=x;i++){
+			document.write('<br/>')
+			for(var j = 1;j<=i-1;j++){
+			document.write('&nbsp;');
+			}
+			for(j = 1;j<=x;j++){
+				document.write('* ');
+			}
+		
+		}
+		
+		
+		//rhombus
+		document.write('<br>作业菱形<br><br><br>');
+		
+            for(var i=1;i<=x;i++)
+            {
+                for(var j=0;j<=x-i;j++)
+                  document.write("&nbsp;");
+                for(var k=1;k<=2*i-1;k++)//
+                 document.write('*');
+            
+                document.write('<br/>');
+            }
+             for(var i=1;i<=x;i++)
+            {
+                for(var j=2;j<=i;j++)
+                  document.write("&nbsp;");
+                for(var k=2*x;k>=2*i;k--)
+                  document.write('*');
+                  document.write('<br/>');
+            }
+			}
+	</script>
+</html>

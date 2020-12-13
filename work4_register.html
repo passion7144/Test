@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<!-- 使用Jquery针对如下表单进行验证：
+	
+	用户名、密码、确认密码、手机号、验证码必须填。
+	
+	阅读并同意必须打勾。
+	
+	密码长度在8~20位之间。
+	
+	确认密码必须和密码相同。
+	
+	手机号应该为11位，并且是合法的手机号段。 -->
+	<head>
+		<meta charset="utf-8">
+		<title>魑魅先生</title>
+		<link href="css/work4/re.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+
+
+	</head>
+	<body>
+		<header>
+			<img src="img/work4/jingdong.png" />
+		</header>
+		<section>
+			<form id="su" class="re" name="su" method="get" action="chooseAll.html">
+
+				<span id="tabtitle">用 户 名 </span><input id="uname" name="uname" class="re_input" type="text" onblur="checkUser()"
+				 value="" placeholder="                      您的用户名" required />
+				<!-- <span id="warm_uname"></span><br /> -->
+
+				<span id="tabtitle">设 置 密 码</span><input id="pass" name="pass" class="re_input" type="password" onblur="checkPwd()"
+				 value="" placeholder="                      您的密码" required>
+				<!-- <span id="warm_pass"></span><br /> -->
+
+				<span id="tabtitle">确 认 密 码</span><input id="repass" name="repass" class="re_input" type="password" onblur="checkRepwd()"
+				 value="" placeholder="                      再次输入密码" required>
+				<!-- <span id="warm_repass"></span><br /> -->
+
+				<select class="re_input1" name="numbers" id="numbers">
+					<option value="1"> <span>中国 008</span></option>
+					<option value="2" selected>2</option>
+					<option value="2" selected>3</option>
+					<option value="2" selected>4</option>
+					<option value="2" selected><span>中国 008</span></option>
+					             
+				</select>
+
+				<input id="mobile" name="mobile" class="re_input2" type="text" value="" onblur="checkMobile()" placeholder="                              请输入手机号"
+				 required />
+				<!-- <span id="warm_phone"></span><br /> -->
+
+				<span id="tabtitle">验 证 码</span><input id="chepic" name="chepic" class="re_input" type="text" onblur="checkpic()"
+				 style="background: url(img/work4/yanzhengma.png) no-repeat right 2px;" value="" placeholder="                      请输入验证码"
+				 required>
+				<!-- <span id="warm_chepic"></span>
+ -->
+				<input id="box" name="box" onclick="box()" class="ce" type="checkbox" value="" required>阅读并同意 <a href=""> 大学生手册</a>
+				<br> <input onclick="che()" class="button" type="submit" value="立即注册" /><!-- <span id="warmming"></span> -->
+			</form>
+		</section>
+
+		<script type="text/javascript">
+			$().ready(function() {
+				// 在键盘按下并释放及提交后验证提交表单
+				$("#su").validate({
+					rules: {
+						uname: {
+							required: true,
+							minlength: 2
+						},
+						pass: {
+							required: true,
+							minlength: 5
+						},
+						repass: {
+							required: true,
+							minlength: 5,
+							equalTo: "#password"
+						},
+						mobile: {
+							required: true,
+							email: true
+						},
+						topic: {
+							required: "#newsletter:checked",
+							minlength: 2
+						}
+						box: "required"
+					},
+					messages: {
+						uname: {
+							required: "请输入用户名",
+							minlength: "用户名必需由两个字母组成"
+						},
+						pass: {
+							required: "请输入密码",
+							minlength: "密码长度不能小于 5 个字母"
+						},
+						repass: {
+							required: "请输入密码",
+							minlength: "密码长度不能小于 5 个字母",
+							equalTo: "两次密码输入不一致"
+						}
+					}
+				});
+			});
+
+
+			// 			var flag = 0;
+			// 			/*用戶名验证*/
+			// 			function checkUser() {
+			// 				var user = document.getElementById("uname");
+			// 				var userId = document.getElementById("warm_uname");
+			// 				userId.innerHTML = "";
+			// 				var reg = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+			// 				if (reg.test(user.value) == false) {
+			// 					userId.innerHTML = "<img src='img/work4/false.png' height='20px' width='20px' />用户名不正确,请重新输入！";
+			// 					flag = 1;
+			// 					return null;
+			// 				}
+			// 				userId.innerHTML = "<img src='img/work4/true.png' height='20px' width='20px' />";
+			// 
+			// 				flag = -1;
+			// 			}
+			// 
+			// 			/*密码验证*/
+			// 			function checkPwd() {
+			// 				var pwd = document.getElementById("pass");
+			// 				var pwdId = document.getElementById("warm_pass");
+			// 				pwdId.innerHTML = "";
+			// 				var reg = /^[a-zA-Z0-9]{4,10}$/;
+			// 				if (reg.test(pwd.value) == false) {
+			// 					pwdId.innerHTML = "<img src='img/work4/false.png' height='20px' width='20px' />密码不能含有非法字符，长度在4-10之间";
+			// 					flag = 1;
+			// 					return null;
+			// 				}
+			// 				flag = -1;
+			// 				pwdId.innerHTML = "<img src='img/work4/true.png' height='20px' width='20px' />";
+			// 
+			// 			}
+			// 
+			// 			function checkRepwd() {
+			// 				var repwd = document.getElementById("repass");
+			// 				var pwd = document.getElementById("pass");
+			// 				var repwdId = document.getElementById("warm_repass");
+			// 				repwdId.innerHTML = "";
+			// 				if (pwd.value != repwd.value) {
+			// 					repwdId.innerHTML = "<img src='img/work4/false.png' height='20px' width='20px' />两次输入的密码不一致";
+			// 					flag = 1;
+			// 					return null;
+			// 				}
+			// 				flag = -1;
+			// 				repwdId.innerHTML = "<img src='img/work4/true.png' height='20px' width='20px' />";
+			// 
+			// 			}
+			// 
+			// 			/*验证手机号码*/
+			// 			function checkMobile() {
+			// 				var mobile = document.getElementById("mobile");
+			// 				var mobileId = document.getElementById("warm_phone");
+			// 				var regMobile = /^1\d{10}$/;
+			// 				if (regMobile.test(mobile.value) == false) {
+			// 					mobileId.innerHTML = "<img src='img/work4/false.png' height='20px' width='20px' />手机号码不正确，请重新输入";
+			// 					flag = 1;
+			// 					return null;
+			// 				}
+			// 				mobileId.innerHTML = "<img src='img/work4/true.png' height='20px' width='20px' />";
+			// 				flag = -1;
+			// 			}
+			// 			/*验证码*/
+			// 			function checkpic() {
+			// 				var repic = document.getElementById("chepic");
+			// 				var pic = "vjsi";
+			// 				var repicId = document.getElementById("warm_chepic");
+			// 
+			// 				if (pic != repic.value) {
+			// 					repicId.innerHTML = "<img src='img/work4/false.png' height='20px' width='20px' />验证码输入错误".fontcolor("red");
+			// 					flag = 1;
+			// 					return null;
+			// 				}
+			// 				repicId.innerHTML = "<img src='img/work4/true.png' height='20px' width='20px' />";
+			// 				flag = -1;
+			// 			}
+			// 
+			// 			function box() {
+			// 				var bbox = document.getElementById("box");
+			// 				if (bbox.checked == false) {
+			// 					document.getElementById("warmming").innerHTML =
+			// 						"<img src='img/work4/false.png' height='20px' width='20px' />验证码输入错误".fontcolor("red");
+			// 					flag = 1;
+			// 				}
+			// 			}
+			// 
+			// 			function che() {
+			// 				var Box = document.getElementById("box").checked;
+			// 				if (flag == 0) {
+			// 					alert("4", Box, flag);
+			// 					document.getElementById("warmming").innerHTML =
+			// 						"<img src='img/work4/false.png' height='20px' width='20px' />请填入后再试".fontcolor("red");
+			// 				}
+			// 				if (flag == -1 && Box == false) {
+			// 					alert("5" + Box + flag);
+			// 					document.getElementById("warmming").innerHTML =
+			// 						"<img src='img/work4/false.png' height='20px' width='20px' />请仔细阅读大学生手册并同意此条约".fontcolor("red");
+			// 				}
+			// 				if (flag == 1 && Box == false) {
+			// 					alert("1", Box, flag);
+			// 					document.getElementById("warmming").innerHTML =
+			// 						"<img src='img/work4/false.png' height='20px' width='20px' />请仔细阅读大学生手册并同意此条约,并完善错误项".fontcolor("red");
+			// 				}
+			// 				if (flag == -1 && Box == true) {
+			// 					alert("2", Box, flag);
+			// 					document.getElementById("warmming").innerHTML = "";
+			// 					document.getElementById("su").submit();
+			// 				}
+			// 				if (flag == 1 && Box == true) {
+			// 					alert("3", Box, flag);
+			// 					document.getElementById("warmming").innerHTML =
+			// 						"<img src='img/work4/false.png' height='20px' width='20px' />请完善错误项".fontcolor("red");
+			// 				}
+			// 
+			// 
+			// 
+			// 			}
+		</script>
+
+
+		<textarea style="display:none">
+	</body>
+</html>

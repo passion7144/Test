@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="登陆"  onclick="turn()"/>
+		<div>页面跳转倒计时:<span id="myspan"></span></div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+		  var myspan=document.getElementById("myspan");
+		  var timer=30;
+		  var flag;
+		  function daoji(){
+			 timer=timer-1;
+			 myspan.innerHTML=timer;
+			 if(timer==0){
+			   location.href="classwork_searchfile.html";
+			   clearInterval(flag);
+			 }
+		  }
+		  flag=setInterval(daoji,1000);
+		}
+</script> 
+
+ 
+	
+</html>

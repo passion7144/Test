@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{list-style:none;}
+			.tab1{
+				float: left;
+			}
+			.tab2{
+				margin-left: 0px;
+				float: left;
+			}
+			.tab3{
+				float: left;
+				margin-top: 32px;
+				margin-left: -233px;
+			}
+			.tree{
+				margin-left: 200px;
+			}
+			.tree1{
+				margin-left: 230px;
+			}
+			.tree2{
+				margin-left: 250px;
+			}
+			ul li{}
+		</style>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="tab_se">
+			<img class="tab1" id="t1" src="img/work10/left1.jpg"  onclick="change1()"/>
+			<img class="tab2" id="t2" src="img/work10/right1.jpg" onclick="change2()"/>
+			<img class="tab3" id="t3" src="img/work10/end1.jpg"/>			
+		</div>
+		
+		<div class="tree_se">
+			
+			<ul>
+				<li onclick="show()"><img class="tree" src="img/work10/fold.gif" >树形菜单</li>
+				<li    id="top1"  onclick="show1()"><img class="tree1" src="img/work10/fclose.gif">文学艺术</li>				
+				<li id="top2"><img class="tree2" src="img/work10/doc.gif">哈哈哈哈哈</li>				
+				<li id="top3"><img class="tree2" src="img/work10/doc.gif">嘿嘿嘿嘿嘿</li>			
+				<li id="top4"><img class="tree2" src="img/work10/doc.gif">哦哦哦哦哦</li>
+			</ul>
+		</div>
+		
+	</body>
+	
+	<script type="text/javascript">
+		<!--树形菜单-->
+		function show(){ 
+			if(document.getElementById("top1").style.display==''){
+			document.getElementById("top1").style.display='none';
+			document.getElementById("top2").style.display='none';
+			document.getElementById("top3").style.display='none';
+			document.getElementById("top4").style.display='none';
+			}
+			else{ document.getElementById("top1").style.display='';
+			}
+			} 
+		function show1(){ 
+				if(document.getElementById("top2").style.display==''){
+				document.getElementById("top2").style.display='none';
+				document.getElementById("top3").style.display='none';
+				document.getElementById("top4").style.display='none';
+				}
+				else{
+				document.getElementById("top2").style.display='';
+				document.getElementById("top3").style.display='';
+				document.getElementById("top4").style.display='';
+				}
+				} 
+		<!--tab选项卡-->
+		function change1(){
+			var top1=document.getElementById('t1');
+			var top2=document.getElementById('t2');
+			var top3=document.getElementById('t3');
+			if (top3.src="img/work10/end1.jpg"){
+				top3.src="img/work10/end1.jpg";
+				top1.src="img/work10/left1.jpg";
+				top2.src="img/work10/right1.jpg";
+			}else{
+				top3.src="img/work10/end2.jpg";
+			}
+		}
+		
+		function change2(){
+			var top1=document.getElementById('t1');
+			var top2=document.getElementById('t2');
+			var top3=document.getElementById('t3');
+			if (top3.src="img/work10/end1.jpg"){
+				top1.src="img/work10/left2.jpg";
+				top2.src="img/work10/right2.jpg";
+				top3.src="img/work10/end2.jpg";
+			}else{
+				top3.src="img/work10/end1.jpg";
+			}
+		}
+	</script>
+</html>

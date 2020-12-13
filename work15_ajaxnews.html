@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	  <title></title>
+	  <script src="js/jquery-3.4.0.min.js"></script>
+	  <style>
+		  body{
+			  background-color: #C0EBEF;
+			  }
+	  	ul li{
+	  		list-style: none;
+	  	}
+	  	.news{
+	  		font-size: 24px;
+	  		font-weight: bold;
+	  		text-align: center;
+	  		height: 60px;
+	  		width: 100%;
+	  		background: #00A0E9;
+	  		line-height: 60px;	  		
+	  	}
+	  	.id{
+	  		font-size: 20px;
+	  		font-weight: bold;
+	  		text-align: center;
+	  	}
+		.title{
+	  		font-size: 20px;
+	  		font-weight: bold;
+	  		text-align: center;
+	  	}
+	  	.content{
+	  		width: 80%;
+	  		font-size: 16px;
+	  		margin: auto;
+	  		margin-top: 30px;
+	  	}
+	  </style>
+</head>
+<body>
+		<div class="news">新闻</div>
+		<script type="text/javascript">
+		var url = "http://hoa.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=info&id=2";
+		$.ajax({
+		    type:'get',
+		    url:url,
+		    dataType:"json",		
+		    success:function(data){	
+		    	  
+						var str="<ul>";  
+            for(var i=0;i<1;i++){             	
+		            str+="<li class='id'>"+"ID："+data.id+"</li>";
+		            str+="<li class='title'>"+"标题："+data.title+"</li>";
+		            str+="<li class='content'>"+data.content+"</li>";
+            };  
+            str+="</ul>";  
+            $("div").after(str);
+		    }
+		});
+		</script>
+</body>
+</html>
+

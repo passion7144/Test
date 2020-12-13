@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="css/jquery-ui.min.css">
+		</script>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script src="css/jquery-ui.min.js"></script>
+		<title></title>
+		<script type="text/javascript">
+			$(function() {
+				var date = [
+					"啊 啊我来打开我觉得你",
+					"啊 速度加我",
+					"不 我就大号加我",
+					"不 忘记打卡机文化的",
+					"从 登记哈我就看到",
+					"从 点卡我",
+					"的的缴纳可我觉得",
+					"的的那久违的",
+					"额大家那我觉得"
+				];
+				$("#lable1").autocomplete({
+					source: date
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="ui-widget">
+			<label for="lable1">Tags: </label>
+			<input id="lable1">
+		</div>
+	</body>
+</html>

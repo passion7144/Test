@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.mydate{
+				height: 130px;
+				color: white;
+				font-size:50px; 
+				font-weight: 900;
+				background:url("img/work8/clock.png") no-repeat ;
+				padding-left: 45px;
+				padding-top: 40px;
+			}
+			.DAY{height: 130px;
+				font-size:28px; 
+				font-weight: 900;
+				background:url("img/work8/clock.png") no-repeat ;
+				padding-left: 27px;
+				padding-top: 2px;
+				background:url("img/work8/cald.png" ) no-repeat ;
+			}
+			.myday{
+			
+			margin-top: -10px;
+				font-size: 90px;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<div id="date1" class="mydate">xx:xx:xx</div>
+	<div class="DAY">
+		<div id="week" class="myweek">x</div>
+		<div id="day1" class="myday">xx</div>
+	</div>
+	</body>
+
+	<script type="text/javascript">
+		function showtime(){
+			
+			//获取日期对象
+			var mydate = new Date();
+			//获得小时
+			var HH= mydate.getHours();
+			if(HH<10){
+            HH = '0'+ HH;  //补齐
+        }
+			//获得分钟
+			var mm= mydate.getMinutes();
+			if(mm<10){
+            mm = '0'+ mm;  //补齐
+        }
+			//获得秒
+			var ss = mydate.getSeconds();
+			if(ss<10){
+            ss = '0'+ ss;  //补齐
+        }
+			//定义一个中文数组
+			var arr= new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+			//获得星期
+			var xingqi = arr[mydate.getDay()];
+			//获得年
+			var yyyy = mydate.getYear();
+			//获得月
+			var MM = mydate.getMonth();
+			//获得日
+			var dd = mydate.getDate();
+			//标签内加入内容
+			//yyyy-MM-dd HH:mm:ss	
+			
+			document.getElementById('date1').innerHTML=HH+':'+mm+':'+ss;
+			document.getElementById('week').innerHTML=xingqi;
+			document.getElementById('day1').innerHTML=dd;
+			//跳起来
+			//递归
+			//var mydate=setTimeout("showtime()",1000);
+			var mydate=setInterval("showtime()",1000); 
+				  
+					}
+			//var mydate=setTimeout("showtime()",1000);
+			showtime();
+	</script>
+
+</html>

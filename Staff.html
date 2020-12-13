@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<style type="text/css">
+			input{
+				border: 1px solid black;
+			}
+			.title{
+				width: 80px;
+			}
+			.rowInfo{
+				margin-bottom: 5px;
+				clear: both;
+			}
+			a{
+				text-decoration: none;
+			}
+			.tb1{
+				border-top: 1px solid black;
+				border-left: 1px solid black;
+				clear: both;
+				margin-top: 50px;
+			}
+			.tb1 td{
+				border-top: 1px solid black;
+				border-left: 1px solid black;
+				text-align: center;
+				height: 25px;
+			}
+			.date{
+				width: 59px;
+			}
+		</style>
+		<script src="js/My97DatePicker/WdatePicker.js"></script>
+	</head>
+	<body>
+		<div class="rowInfo">
+			<div class="title">
+				<span>姓名:</span>
+			</div>
+			<div>
+				<input id="name" name="name" />
+			</div>
+			<div class="title">
+				<span>性别：</span>
+			</div>
+			<div>
+				<input type="radio" checked="checked" name="gender"/>男</input>
+					<input type="radio" checked="checked" name="gender"/>女</input>
+			</div>
+		</div>
+		<div class="rowInfo">
+			<div class="title"><span>身份证：</span></div>
+			<div><input id="id" name="id"/></div>
+			<div class="title"><span>基本工资：</span></div>
+			<div><input id="salary" name="salary"/></div>
+		</div>
+		<table border="0" id="tblWorkExperience" class="tb1" cellpadding="0" cellspacing="0">
+			<thead><tr><td colspan="6">工作经历</td></tr></thead>
+				<tr>
+					<td width="160px">时间段</td>
+					<td width="130px">公司名称</td>
+					<td width="100px">职务</td>
+					<td width="200px">主要工作及职责</td>
+					<td width="100px">证明人</td>
+					<td width="70px">操作(<a href="#" onclick="addRow()">+</a>)</td>
+				</tr>
+			<tr id="r_1">
+				<td>从<input id="txtFromDate_1" onclick="WdatePicker()"
+				class="date"/>到<input id="txtToDate_1" class="date" onclick="WdatePicker()"/>
+				
+				</td>
+				<td><input id="txtCompanyName_1"/></td>
+				<td><input id="txtPostion_1"/></td>
+				<td><input id="txtResponsibility_1"/></td>
+				<td><input id="txtWitness_1"/></td>
+				<td><a href="#" onclick="return false;" style="color: gray;" title="删除">X</a></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			
+			var rowCounter=1;
+			function addRow(){
+				rowCounter++;
+				$("#tblWorkExperience").append('<tr id="r_'+rowCounter+'">
+				<td>从<input id="txtFromDate_" onclick="WdatePicker()"
+				class="date"/>到<input id="txtToDate_" class="date" onclick="WdatePicker()"/>
+				
+				</td>
+				<td><input id="txtCompanyName_"/></td>
+				<td><input id="txtPostion_"/></td>
+				<td><input id="txtResponsibility_"/></td>
+				<td><input id="txtWitness_"/></td>
+				<td><a href="#" onclick="return false;" style="color: gray;" title="删除">X</a></td>'+
+				'</tr>'
+				);
+			}
+		function removeRow(rowIndex){
+			if(confirm('真的打算移除吗？')){
+				$("#r_"+rowIndex).remove();
+		}
+		}
+	</body>
+</html>

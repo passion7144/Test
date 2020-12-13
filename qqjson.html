@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+		<title></title>
+
+
+
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script type="text/javascript">
+			document.onkeydown = function(e) {
+				var theEvent = window.event || e;
+				var code = theEvent.keyCode || theEvent.which;
+				if (document.getElementById("num").value.length > 0 && code == 13) {
+					$("input[type='button']").click();
+				}
+			}
+
+			function get_child_reg(regs, connect) { //获取第一个子匹配项
+				var reg = regs;
+				var con = connect;
+				var r = "";
+				while (r = reg.exec(con)) {
+					return (r[1]) ? r[1] : false;
+				}
+			}
+
+			function getMusicId() {
+
+				var url = 'https://www.sojson.com/api/qqmusic/' + $('#num').val();
+				$.getScript(url); //执行js
+			}
+
+			function jsonCallback(data) {
+				var songs = data.SongList;
+				if (songs.length == 0) {
+					$('#con').html('<div class="alert alert-danger"><center>此QQ空间没有收藏音乐。</center></div>');
+					return;
+				}
+				$('#con').html('');
+				for (var i = 0; i < songs.length; i++) {
+					var url_id = get_child_reg(/.*stream\d+\.qqmusic\.qq\.com\/(\d+)\..*/, songs[i].url);
+					var ling = url_id ? '<br>' + '(2  <a rel="noreferrer" target="_blank" href="http://tsmusic24.tc.qq.com/' + url_id +
+						'.wma">http://tsmusic24.tc.qq.com/' + url_id + '.wma</a>' +
+						'<br>(3  <a rel="noreferrer" target="_blank" href="http://tsmusic24.tc.qq.com/' + songs[i].id +
+						'.mp3">http://tsmusic24.tc.qq.com/' + songs[i].id + '.mp3</a>' : '';
+					$('#con').append(
+						'<tr><td align="center" rowspan="2" width="50px" style="font-size:18px;text-align: center;margin:0 auto;vertical-align:middle;"><b>' +
+						(i + 1) + '</b></td><td height="30px" valign="bottom">' + songs[i].singername + ' - ' + songs[i].songname +
+						'</td></tr><tr><td height="30px" valign="top">(1  <a rel="noreferrer" target="_blank" href="' + songs[i].url +
+						'">' + songs[i].url + '</a>' + ling + '</td></tr><tr></tr>');
+				}
+			}
+		</script>
+	</head>
+	<body>
+
+
+		<div class="form_pan">
+			<div class="jumbotron">
+				<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone"
+
+
+
+				</script>
+
+				<div class="input-group">
+					<span class="input-group-addon">QQ号码：</span>
+					<input class="form-control" type="text" id="num">
+					<span class="input-group-btn">
+						<input style="margin-top: -10px" type="button" value="查询" onclick="getMusicId()" class="btn btn-primary">
+					</span>
+				</div>
+				<center>
+					<table class="table table-striped table-bordered" align="center" border="0" id="con" style="font-size:13px;"
+					 cellpadding="2" cellspacing="1"></table>
+				</center>
+			</div>
+
+	</body>
+</html>

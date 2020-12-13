@@ -1,0 +1,73 @@
+html,
+body,
+div,
+table,
+span,
+ul,
+li {
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+	width: 100%;
+	height: 10%;
+	background-color: white;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+input {
+	border-left: none;
+	border: solid 1px #A9A9A9;
+
+}
+
+.re {
+	width: 405px;
+	height: 60%;
+	//background-color: #DCDCDC;
+	margin-left: 40%;
+	margin-top: 5%;
+}
+
+.re_input {
+	width: 310px;
+	height: 40px;
+	margin-bottom: 30px;
+	float: left;
+	border-left: none;
+}
+
+.re_input1 {
+	width: 50px;
+	height: 44px;
+	float: left;
+	border-right: none;
+}
+
+.re_input2 {
+	width: 340px;
+	height: 40px;
+	float: left;
+	margin-bottom: 30px;
+	border-left: none;
+}
+
+.button {
+	height: 40px;
+	width: 390px;
+	background-color: red;
+	margin-left: 7px;
+}
+
+#tabtitle {
+
+	border: solid 1px #A9A9A9;
+	width: 80px;
+	border-right: none;
+	padding-top: 12px;
+	padding-bottom: 9px;
+	color: #888888;
+	float: left;
+	text-align: center;
+}

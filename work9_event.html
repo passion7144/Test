@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>事件</title>
+		<style type="text/css">
+			input{font-size:26px;margin-top: 20px;}
+			body{background-image: url(img/work9/grassland.png);}
+			#mytank{position: absolute;left:10px;top:100px}
+		</style>
+	</head>
+	<body>
+		<input id="btn1" name="bt1" type="button" value="按钮一" onclick="btn1()"/>
+		<input id="btn2" name="bt2" type="button" value="按钮二" ondblclick="btn2()"/>
+		<input id="btn3" name="bt3" type="button" value="按钮三" onmouseover="btn3()" ondblclick="btt3()"/>
+		<hr />
+		<img id="mytank" src="img/work9/right.png"/>
+		<script type="text/javascript">
+			//按钮事件
+			var b1=document.getElementById('btn1');
+			var b2=document.getElementById('btn2');
+			var b3=document.getElementById('btn3');
+			b1.onclick=function(){
+				alert('javascript事件测试一');
+			}
+			function btn2(){
+				document.getElementById("btn2").value="按钮二测试";
+			}
+			function btn3(){
+				b3.style.color="white";
+				b3.style.backgroundColor="blue"
+			}
+			function btt3(){
+				alert('javascript事件测试三');
+			}
+			//上下左右移动
+			var mytank = document.getElementById('mytank');
+			window.addEventListener(
+				'keydown',
+				function(e){
+					console.log(e.keyCode);
+					if(e.keyCode == 39){//数字代表按钮
+						document.getElementById('mytank').src = "img/work9/right.png";
+						mytank.style.left = (mytank.offsetLeft+10)+'px'; 
+					}
+					else if(e.keyCode == 37){
+						document.getElementById('mytank').src = "img/work9/left.png";
+						mytank.style.left = (mytank.offsetLeft-10)+'px';
+					}
+					else if(e.keyCode == 38){
+						document.getElementById('mytank').src = "img/work9/up.png";
+						mytank.style.top = (mytank.offsetTop-10)+'px';
+					}
+					else if(e.keyCode == 40){
+						document.getElementById('mytank').src = "img/work9/down.png";
+						mytank.style.top= (mytank.offsetTop+10)+'px';
+					}
+				});		
+			
+		</script>
+	</body>
+</html>

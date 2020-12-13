@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.adver{
+				position: relative;
+			}
+			.bo{
+				width: 80%;
+				height: 1000px;
+				border: solid 2px #00A0E9;
+				margin-left: 10%;
+				background-color: #A9A9A9;
+			}
+			ul{margin-left: 21%;}
+			ul li{
+				height: 50px;
+				width: 70px;
+				list-style-type: none;
+				float:left;
+				background-image: url(img/work11/bg1.png);
+				margin-left: 1px;
+				text-align: center;
+				line-height: 50px;
+				box-shadow: 5px 5px #787777;
+			}
+			.header{height: 15%;
+			border: solid 1px #CC0000;}
+			.tab{margin-left: 10%;
+			height: 50px;}
+			.out{
+				background-image=url(img/work11/bg1.png);
+				color='#000';
+			}
+			.over{
+				 background-image:url(img/work11/bg2.png);
+				 color='#fff';
+			}
+			.left{float: left;
+			margin-top: 200px;
+			margin-left: 44px;
+			}
+			.right{float: right;
+			margin-right: 144px;
+			margin-top: 200px;}
+			.down{
+			margin-left: 80%;
+			padding-top:800px;
+			}
+			.left img{
+				position: absolute;
+			}
+			.right img{
+				position: absolute;
+			}
+			.down img{
+				position: absolute;
+				
+				}
+		
+			.closepic{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+			<div class="adver">
+					   <div class="left" id="left" style="position:relative"><img src="img/work11/ad1.jpg"/>
+																	          <img class="closepic" src="img/work11/close.png"  onclick="closev()"/>
+					   </div>
+						<div class="right" id="right" style="position:relative"><img src="img/work11/ad1.jpg" />
+																	            <img class="closepic" src="img/work11/close.png"  onclick="closev()"/>
+						</div>
+						<div class="down" id="down" style="position:fixed"><img id="ad"  src="img/work11/ad2.jpg"/>
+													<img class="closepic" src="img/work11/close.png" onclick="closed()"/>
+		                </div>
+			</div>
+		<div class="bo">
+		<div class="header">
+			</div>
+			<div class="tab">
+		<ul id="ul">
+			<li class="out" >首页</li>
+			<li class="out">产品中心</li>
+			<li class="out">客户服务</li>
+			<li class="out">关于我们</li>
+			<li class="out">新闻资讯</li>
+			<li class="out">人力资源</li>
+			<li class="out">联系我们</li>
+		</ul>
+		   </div>
+		   
+				
+			 </div>
+		   <script type="text/javascript">
+// 			   var timesRun = 0;
+// 				var interval = setInterval(function(){
+// 					timesRun += 1;
+// 					if(timesRun === 60){    
+// 						clearInterval(interval);    
+// 					}
+// 					u();
+// 				}, 2000)var tim=setInterval("u();",200);;
+			   var tim=setInterval("u();",20);
+			   var a= document.getElementById("down");
+			   var b=0;
+			   var sum;
+			   function u(){					   
+				  a.style.top=(a.offsetTop-10)+'px';
+					  b++;
+					 // alert(b);
+					  if(b>25){
+						  clearInterval(tim);
+						 }}
+			   
+			   //计时器
+			   // setInterval("up();",2000);
+				
+			    function closev(){
+					document.getElementById("left").style.display='none';
+					document.getElementById("right").style.display='none';
+				}
+				 function closed(){
+					document.getElementById("down").style.display='none';
+				}
+			   var lis = document.getElementById("ul").getElementsByTagName("li");
+			   for(var i=0;i<=lis.length;i++){
+				   lis[i].onmouseover=function(){
+					   this.className='over';
+					 
+				   }
+				   lis[i].onmouseout=function(){
+						this.className='out';
+				   }
+			   }
+			 
+			 
+		   </script>
+		   <textarea style="display:none">
+			  
+	</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js面向对象</title>
+		<style type="text/css">
+			select {
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//字面量方式
+			var student = {
+				name: '张三',
+				sex: '男',
+				show: function() {
+					console.log(student.name + '-' + student.sex);
+				}
+			};
+
+			//			student.show();
+			//			console.log(student.name);
+			//长方形对象
+			var rect = {
+				width: 10,
+				height: 10,
+				calArea: function() {
+					console.log("面积为：" + this.width * this.height);
+				}
+			}
+			//			rect.calArea();
+			//构造函数方式
+			function teacher(name, sex) {
+				this.name = name;
+				this.sex = sex;
+				this.show = function() {
+					console.log(this.name + '-' + this.sex);
+				}
+			}
+			var tea = new teacher('张三', '女');
+			//			console.log(tea.name);
+			//			tea.show();
+			//Object方式
+			var emp = new Object();
+			emp.age = 100;
+			emp.show = function() {
+
+			}
+			//			console.log(emp.age);			
+			//			var d = new Date();
+			//prototype
+			function square() {
+				this.width = 20;
+				square.prototype.width = 10;
+				this.calArea = function() {
+					console.log('面积为：' + this.width * this.width);
+				}
+			}
+			var s1 = new square();
+			//			s1.calArea();
+			//			console.log(square.prototype.width);
+		</script>
+
+
+		<select id="province"></select>
+		<select id="city"></select>
+		<select id="area"></select>
+		<script type="text/javascript">
+			//数据
+			var pData = new Array('北京', '重庆', '四川省');
+			var cData = new Array(
+				new Array('北京市'),
+				new Array('重庆市'),
+				new Array('成都市', '德阳市', '绵阳市', '攀枝花市', '泸州市', '内江市', '广元市', '自贡市')
+			);
+			var aData = new Array(
+				new Array(
+					new Array('东城区', '西城区', '朝阳区', '丰台区')
+				),
+				new Array(
+					new Array('渝中区', '沙坪坝区', '江北区', '巴南区', '渝北区', '大渡口区', '九龙坡区', '南岸区')
+				),
+				new Array(
+					new Array('武侯区', '锦江区', '金牛区', '成华区', '青羊区'),
+					new Array('旌阳区', '中江县')
+				)
+			);
+			var p = document.getElementById('province');
+			var c = document.getElementById('city');
+			var a = document.getElementById('area');
+
+
+			for (var i = 0; i < pData.length; i++) {
+				//创建option对象
+				var op = new Option(pData[i], i);
+				//添加option
+				p.options.add(op);
+			}
+			for (var ii = 0; ii < cData.length; ii++) {
+				//创建option对象
+				var oc = new Option(cData[ii][0], ii);
+				//添加option
+				c.options.add(oc);
+			}
+			for (var iii = 0; iii < aData.length; iii++) {
+				//创建option对象
+				var oa = new Option(aData[iii][0][0], iii);
+				//添加option
+				a.options.add(oa);
+			}
+
+
+			function bindCity() {
+				c.options.length = 0;
+				var item = p.value;
+				var citys = cData[item];
+				var area1 = pData[item];
+				for (var i = 0; i < citys.length; i++) {
+					//创建option对象
+					var op = new Option(citys[i], i);
+						var ob = new Option(area1[i], i);
+					//添加option
+					c.options.add(op);
+					a.options.add(ob);
+				}
+			}
+
+			function bindCity1() {
+
+				a.options.length = 0;
+				var item = p.value;
+				var citys = cData[item];
+				var aitem = c.value;
+				var areas = aData[2][aitem];
+
+				for (var z = 0; z < areas.length; z++) {
+					//创建option对象
+					var oa = new Option(areas[z], z);
+					//添加option
+					a.options.add(oa);
+
+
+				}
+
+			}
+
+			
+				p.onchange = bindCity;
+			c.onchange = bindCity1;
+		</script>
+	</body>
+</html>

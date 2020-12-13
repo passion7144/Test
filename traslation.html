@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.4.0.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#butt1").click(function() {
+					$('#Div').show(1000);
+				})
+				$("#butt2").click(function() {
+					$('#Div').hide(1000);
+				})
+				$("#butt3").click(function() {
+					$('#Div').slideWown(1000);
+				})
+				$("#butt4").click(function() {
+					$('#Div').slideup(1000);
+				})
+				$("#butt5").click(function() {
+					$('#Div').slideToggle(1000);
+				})
+				$("#butt6").click(function() {
+					$('#Div').fadeIn(1000);
+				})
+				$("#butt7").click(function() {
+					$('#Div').fadeOut(1000);
+				})
+				$("#butt8").click(function() {
+					$('#Div').fadeTo(1000,0.5);
+				})
+				$("#butt9").click(function() {
+					$('#Div').fadeToggle(1000);
+				})
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="Div" style="height: 200px; width: 200px; background-color: #00A0E9; line-height: 100px;">
+			我的div
+		</div>
+		<button id="butt1">显示</button>
+		<button id="butt2">隐藏</button>
+		<button id="butt3">下滑</button>
+		<button id="butt4">上滑</button>
+		<button id="butt5">滑到</button>
+		<button id="butt6">淡入</button>
+		<button id="butt7">淡出</button>
+		<button id="butt8">淡到</button>
+		<button id="butt9">淡入淡出</button>
+		<button id="butt10"></button>
+		<button id="butt11"></button>
+	</body>
+</html>
